@@ -1,0 +1,24 @@
+{
+  "name": "web-component-svelte",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-serve --config webpack.js"
+  },
+  "keywords": [],
+  "author": "Thor Håkon Bredesen",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^6.2.0",
+    "css-loader": "^4.3.0",
+    "file-loader": "^6.1.0",
+    "style-loader": "^1.3.0",
+    "svelte": "^3.29.0",
+    "svelte-loader": "^2.13.6",
+    "svelte-preprocess": "^4.5.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-serve": "^3.2.0"
+  }
+}

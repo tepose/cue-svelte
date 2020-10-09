@@ -1,0 +1,29 @@
+:root {
+  box-sizing: border-box;
+  margin: 0;
+  display: block;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+.icon:before {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  color: #444444;
+  content: "\\e80c";
+  font-style: normal;
+  font-weight: normal;
+  font: 16px "cf";
+}
+
+.icon.active:before {
+  color: #09ab00;
+}
+
+h1 {
+  color: rebeccapurple;
+}
