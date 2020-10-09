@@ -1,5 +1,5 @@
-import App from "./App.svelte";
-
+const App = require("./App.svelte");
+const Icon = require("./icon");
 // I made this into a function for when I need several CSS assets
 function cssElement(url) {
   const css = document.createElement("link");
@@ -18,7 +18,7 @@ export default class SvelteExtension extends cue.core.webcomponents
     super(props);
     this.attachShadow({ mode: "open" });
 
-    const staticPath = "https://localhost:1234/dist";
+    const staticPath = "https://localhost:1234";
     const css = cssElement(`${staticPath}/style.css`);
     this.shadowRoot.appendChild(css);
   }
@@ -48,3 +48,6 @@ export default class SvelteExtension extends cue.core.webcomponents
 
 customElements.get("svelte-extension") ||
   customElements.define("svelte-extension", SvelteExtension);
+
+customElements.get("svelte-extension-icon") ||
+  customElements.define("svelte-extension-icon", Icon);

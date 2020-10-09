@@ -1,4 +1,4 @@
-class Icon extends HTMLElement {
+module.exports = class Icon extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -7,7 +7,7 @@ class Icon extends HTMLElement {
     // and the sidePanel cueInterface does not provide this information, as far as I can see
     window.homeScreen = !!this.cueInterface.homeScreen;
 
-    const staticPath = "https://localhost:1234/dist";
+    const staticPath = "https://localhost:1234";
     this.shadowRoot.innerHTML = `
             <link rel="stylesheet" type="text/css" href="${staticPath}/style.css">
             <span class="icon"></span>
@@ -30,7 +30,4 @@ class Icon extends HTMLElement {
       icon.classList.remove("active");
     }
   }
-}
-
-customElements.get("svelte-extension-icon") ||
-  customElements.define("svelte-extension-icon", Icon);
+};

@@ -64,6 +64,16 @@ module.exports = {
         "Access-Control-Allow-Methods":
           "GET, POST, PUT, DELETE, PATCH, OPTIONS",
       },
+      historyFallback: {
+        rewrites: [
+          {
+            from: /^\/.*$/,
+            to(context) {
+              return `/dist/${context.parsedUrl.pathname.replace("/", "")}`;
+            },
+          },
+        ],
+      },
     }),
   ],
 };
