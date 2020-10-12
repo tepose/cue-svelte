@@ -2,8 +2,8 @@
 
 To get started:
 ```
-npm i
-npm run start
+$ npm i
+$ npm run start
 ```
 
 Files can be found at `localhost:1234/extension.js` and `localhost:1234/style.css`.
