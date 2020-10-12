@@ -27,10 +27,10 @@ editors:
 Note that to include Svelte components into a custom component, with this configuration, you need to import it this way:
 
 ```
-const App = require('./app.svelte).default;
+import { default as App } from "./App.svelte";
 ```
 
-If you know how to avoid having to write `.default`, let me know!
+If you know how to avoid having to write `{ default as App }`, let me know!
 
 This project uses webpack to bundle files, but Rollup is also an option. The reason for using webpack, you ask? That's what we started with during development, and it has served our needs sufficiently.
 

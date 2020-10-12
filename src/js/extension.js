@@ -1,5 +1,6 @@
-const App = require("./App.svelte").default;
-const Icon = require("./icon");
+import { default as App } from "./App.svelte";
+import Icon from "./icon";
+
 // I made this into a function for when I need several CSS assets
 function cssElement(url) {
   const css = document.createElement("link");
