@@ -24,7 +24,15 @@ editors:
       order: 728
 ```
 
-This project uses WebPack to bundle files, but Rollup is also an option. The reason for using WebPack, you ask? That's what we started with during development, and it has served our needs sufficiently.
+Note that to include Svelte components into a custom component, with this configuration, you need to import it this way:
+
+```
+const App = require('./app.svelte).default;
+```
+
+If you know how to avoid having to write `.default`, let me know!
+
+This project uses webpack to bundle files, but Rollup is also an option. The reason for using webpack, you ask? That's what we started with during development, and it has served our needs sufficiently.
 
 In this project, CSS is not in .svelte files, but hosted as resources. This is a workaround as I did not get the CSS-in-Svelte to work, but please get back to me if you do at thor.bredesen@amedia.com!
 
