@@ -31,6 +31,11 @@ module.exports = {
         },
       },
       {
+        test: /\.m?js$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"],
+      },
+      {
         loader: "file-loader",
         test: /\.(jpg|png|svg|gif)$/,
         options: {
@@ -42,9 +47,6 @@ module.exports = {
         use: [{ loader: "style-loader" }, { loader: "css-loader" }],
       },
     ],
-  },
-  resolve: {
-    extensions: [".mjs", ".js", ".svelte"],
   },
   plugins: [
     new CopyWebpackPlugin({
