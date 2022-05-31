@@ -1,39 +1,20 @@
 import { default as App } from "./App.svelte";
 import Icon from "./icon";
 
-// I made this into a function for when I need several CSS assets
-function cssElement(url) {
-  const css = document.createElement("link");
-  css.rel = "stylesheet";
-  css.type = "text/css";
-  css.href = url;
-  return css;
-}
-
 export default class SvelteExtension extends cue.core.webcomponents
   .TextEditorMetadataPanel {
   // You can read more about cue.core.webcomponents and extending Cue at:
-  // http://docs.escenic.com/cue-user-guide/3.9/the_cue_web_component_api.html
+  // http://docs.cuepublishing.com/cue-technical-help/3.15/the_cue_web_component_api.html
 
   constructor(props) {
     super(props);
-    this.attachShadow({ mode: "open" });
-
-    const staticPath = "http://localhost:1234";
-    const css = cssElement(`${staticPath}/style.css`);
-    this.shadowRoot.appendChild(css);
+    this.root = this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
-    this.root = document.createElement("div");
-    this.shadowRoot.appendChild(this.root);
-
-    // this.app is just to store a reference to the Svelte application, and it's not really needed
     this.app = new App({
-      // this.root as target is important so that Svelte is attached at the corrext location in the DOM
       target: this.root,
       props: {
-        // "this" refers to the class, so that you have access to i.e. cueInterface
         context: this,
       },
     });

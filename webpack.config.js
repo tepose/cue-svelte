@@ -7,8 +7,8 @@ const outputPath = path.resolve(__dirname, "dist");
 
 module.exports = {
   entry: {
-    extension: "./src/js/extension.js",
-    icon: "./src/js/icon.js",
+    extension: "./src/extension.js",
+    icon: "./src/icon.js",
   },
   output: {
     filename: "[name].js",
@@ -41,23 +41,10 @@ module.exports = {
         options: {
           name: "[name].[ext]",
         },
-      },
-      {
-        test: /\.css$/,
-        use: [{ loader: "style-loader" }, { loader: "css-loader" }],
-      },
+      }
     ],
   },
   plugins: [
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: "./src/css",
-          to: outputPath,
-          toType: "dir",
-        },
-      ],
-    }),
     new WebpackPluginServe({
       host: "127.0.0.1",
       port: 1234,

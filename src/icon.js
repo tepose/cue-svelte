@@ -3,15 +3,22 @@ module.exports = class Icon extends HTMLElement {
     super();
     this.attachShadow({ mode: "open" });
 
-    // This is a solution for sidePanels, where I need to know if it is on the homeScreen or not,
-    // and the sidePanel cueInterface does not provide this information, as far as I can see
-    window.homeScreen = !!this.cueInterface.homeScreen;
-
-    const staticPath = "https://localhost:1234";
     this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" type="text/css" href="${staticPath}/style.css">
-            <span class="icon"></span>
-        `;
+        <style>
+            .icon:before {
+              -moz-osx-font-smoothing: grayscale;
+              -webkit-font-smoothing: antialiased;
+              color: #444444;
+              content: "\\e80c";
+              font-style: normal;
+              font-weight: normal;
+              font: 16px "cf";
+          }
+
+          .icon.active:before {
+              color: #09ab00;
+          }
+    `;
   }
 
   // This is just standard icon stuff from the Cue documentation
